@@ -1,26 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #09090b;
+  --foreground: #fafafa;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
+
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee { animation: marquee 32s linear infinite; display: flex; width: max-content; }
+
+@keyframes stream-run { to { background-position: -300% 0; } }
+.stream-bar {
+  height: 3px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4, #8b5cf6, #6366f1);
+  background-size: 300% 100%;
+  animation: stream-run 2.5s linear infinite;
+  border-radius: 999px;
+}
+
+@keyframes pdot { 0%,100%{box-shadow:0 0 0 0 rgba(99,102,241,0.4)} 50%{box-shadow:0 0 0 6px rgba(99,102,241,0)} }
+.pulse { animation: pdot 2s ease-in-out infinite; }
