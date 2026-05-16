@@ -1,6 +1,7 @@
-import StellarSdk from "stellar-sdk";
+import { Server } from "@stellar/stellar-sdk/rpc";
+import { Networks } from "@stellar/stellar-base";
 
-const server = new StellarSdk.Server("https://horizon-testnet.stellar.org");
-const networkPassphrase = StellarSdk.Networks.TESTNET;
+const server = new Server("https://horizon-testnet.stellar.org");
+const networkPassphrase = Networks.TESTNET;
 
-export { StellarSdk, server, networkPassphrase };
+export { Server, Networks, server, networkPassphrase };

@@ -6,8 +6,9 @@ export function useWallet() {
 
   const connect = useCallback(async () => {
     try {
-      const resp = await freighterApi.getPublicKey();
-      setAddress(resp);
+      // freighter-api exposes `getAddress()` which returns an object with `address`.
+      const resp = await freighterApi.getAddress();
+      setAddress(resp?.address ?? null);
     } catch (e) {
       setAddress(null);
     }

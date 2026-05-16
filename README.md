@@ -71,25 +71,95 @@ NEXT_PUBLIC_STREAM_CONTRACT_ID=your-contract-id
 
 ## 🧱 Tech Stack
 
-| Layer      | Technology            |
-| ---------- | --------------------- |
-| Framework  | Next.js 16 App Router |
-| Language   | TypeScript 5          |
-| Styling    | Tailwind CSS v4       |
-| Fonts      | Geist Sans + Mono     |
-| Wallet     | Freighter (Stellar)   |
-| Blockchain | Stellar / Soroban     |
+| Layer | Technology |
+| ----- | ---------- |
 
----
+# OrbitStream Frontend
 
-## 🔗 Related Repos
+Frontend for OrbitStream — a token-streaming payroll dashboard on Stellar.
 
-- [OrbitStream Contracts](https://github.com/OrbitStream/orbitstream-contracts) — Soroban smart contracts
-- [OrbitStream Backend](https://github.com/OrbitStream/OrbitStream_backend) — NestJS API + WebSocket
-- [OrbitStream Docs](https://github.com/OrbitStream/orbitstream-docs) — Full documentation
+## Summary
 
----
+- Framework: Next.js (App Router)
+- Language: TypeScript
+- Styling: Tailwind CSS
+- UI primitives: shadcn/ui-style components
+- Wallet: Freighter (Stellar)
+- Blockchain: Stellar (Horizon testnet integration via `@stellar/stellar-sdk`)
 
-## 📜 License
+This repo contains the Next.js frontend used by employers and employees to create, monitor, and claim token streams. The UI shows live accruals (client-side ticker) while authoritative state comes from the backend API.
 
-MIT License. Copyright (c) 2026 OrbitStream Protocol.
+## Project Layout
+
+app/
+page.tsx - landing page
+dashboard/page.tsx - role-aware dashboard
+streams/
+page.tsx - all streams list
+create/page.tsx - create new stream form
+[id]/page.tsx - stream detail view
+settings/page.tsx
+
+components/
+employer/
+StreamTable.tsx - list of active streams
+CreateStreamForm.tsx - create stream form
+RunwayCard.tsx - runway calculator
+employee/
+EarnedCounter.tsx - live earnings ticker (UX only)
+ClaimButton.tsx - trigger claim via Freighter
+ui/ - shared UI primitives (Button, Input, etc.)
+
+hooks/
+useWallet.ts - Freighter connection + address
+useStream.ts - fetch stream data from backend
+useClaimable.ts - local accrual calculator (rate \* elapsed)
+
+lib/
+stellar.ts - `stellar-sdk` setup (testnet)
+contract.ts - contract call wrappers (if any)
+api.ts - backend API client wrapper
+utils.ts
+
+## Environment
+
+Create a `.env.local` with at least:
+
+NEXT_PUBLIC_API_URL=http://localhost:3001
+NEXT_PUBLIC_CONTRACT_ID=
+NEXT_PUBLIC_STELLAR_NETWORK=testnet
+
+Do NOT store or commit private keys.
+
+## Install & Run
+
+Install dependencies and start dev server:
+
+```bash
+npm install
+npm run dev
+```
+
+The app will be available at http://localhost:3000 (or the next available port).
+
+## Notes & Conventions
+
+- Live balance ticker is for UX only — always confirm final amounts with the backend before making on-chain transactions.
+- All on-chain interactions must be signed client-side via Freighter; the app never stores private keys.
+- UI components use Tailwind CSS and follow shadcn-style patterns; avoid inline styles.
+- Role detection: if a connected wallet address matches an employer record, show employer views.
+
+## What I scaffolded here
+
+- Tailwind config and PostCSS integration
+- Basic `useWallet` hook using `@stellar/freighter-api`
+- `lib/stellar.ts` connecting to Horizon Testnet via `@stellar/stellar-sdk`
+- Placeholder UI components and hooks to jumpstart development
+
+## Contribution
+
+If you'd like to contribute, open issues or PRs against `main`. Run the dev server and follow existing component patterns for UI and hooks.
+
+## License
+
+MIT.
