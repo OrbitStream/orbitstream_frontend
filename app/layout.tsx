@@ -3,18 +3,28 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "OrbitStream — Real-Time Token Streaming on Stellar",
-  description: "Stream tokens continuously on Stellar. Send salaries, subscriptions, and grants per-second — powered by Soroban smart contracts.",
+  description:
+    "Stream tokens continuously on Stellar. Send salaries, subscriptions, and grants per-second — powered by Soroban smart contracts.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <div className="max-w-4xl mx-auto p-6">{children}</div>
       </body>
     </html>
   );

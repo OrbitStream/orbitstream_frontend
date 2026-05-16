@@ -48,6 +48,8 @@ npm install
 npm run dev
 ```
 
+Optional: if you added new packages earlier, run `npm install` again to ensure lockfile is updated.
+
 Open [http://localhost:3000](http://localhost:3000).
 
 ### Build for Production
@@ -69,14 +71,14 @@ NEXT_PUBLIC_STREAM_CONTRACT_ID=your-contract-id
 
 ## 🧱 Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | Next.js 16 App Router |
-| Language | TypeScript 5 |
-| Styling | Tailwind CSS v4 |
-| Fonts | Geist Sans + Mono |
-| Wallet | Freighter (Stellar) |
-| Blockchain | Stellar / Soroban |
+| Layer      | Technology            |
+| ---------- | --------------------- |
+| Framework  | Next.js 16 App Router |
+| Language   | TypeScript 5          |
+| Styling    | Tailwind CSS v4       |
+| Fonts      | Geist Sans + Mono     |
+| Wallet     | Freighter (Stellar)   |
+| Blockchain | Stellar / Soroban     |
 
 ---
 
