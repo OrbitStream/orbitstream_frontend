@@ -26,9 +26,9 @@ export default function MerchantSettings() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-md bg-indigo-600 flex items-center justify-center">
-              <span className="text-xs font-black text-white">S</span>
+              <span className="text-xs font-black text-white">O</span>
             </div>
-            <span className="text-sm font-bold text-white">Settings</span>
+            <span className="text-sm font-bold text-white">OrbitStream</span>
           </div>
           <a href="/merchant" className="text-sm text-zinc-400 hover:text-white">
             Dashboard

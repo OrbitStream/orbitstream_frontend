@@ -1,7 +1,7 @@
-# Stellar Checkout Frontend
+# OrbitStream Frontend
 
 ## Project
-Next.js frontend for Stellar Checkout — a Stripe-like merchant payment gateway for Stellar.
+Next.js frontend for OrbitStream — a Stripe-like merchant payment gateway for Stellar.
 
 ## Stack
 - Next.js 16 (App Router)

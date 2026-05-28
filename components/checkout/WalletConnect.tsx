@@ -4,7 +4,7 @@ import { useWallet } from '../../hooks/useWallet';
 
 interface WalletConnectProps {
   onPay: () => void;
-  isPayinging?: boolean;
+  isPaying?: boolean;
 }
 
 export function WalletConnect({ onPay, isPaying }: WalletConnectProps) {

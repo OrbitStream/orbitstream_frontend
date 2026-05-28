@@ -1,11 +1,11 @@
-# Stellar Checkout Frontend
+# OrbitStream Frontend
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8)](https://tailwindcss.com/)
 
-> **The checkout UI and merchant dashboard for Stellar Checkout — Stripe-like payments on Stellar.**
+> **The checkout UI and merchant dashboard for OrbitStream — Stripe-like payments on Stellar.**
 
 Next.js 16 application with two user flows: a customer-facing checkout page (QR code + wallet payment) and a merchant dashboard (API keys, transactions, webhooks).
 

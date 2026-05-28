@@ -9,9 +9,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Stellar Checkout — Accept Stellar Payments in Minutes",
+  title: "OrbitStream — Accept Stellar Payments in Minutes",
   description:
-    "Stripe-like checkout for the Stellar network. Accept USDC, EURC, and XLM with 5-second settlement and $0.00001 fees.",
+    "Stripe-like payment gateway for the Stellar network. Accept USDC, EURC, and XLM with 5-second settlement and $0.00001 fees.",
 };
 
 export default function RootLayout({

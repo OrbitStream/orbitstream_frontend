@@ -22,9 +22,9 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-md bg-indigo-600 flex items-center justify-center">
-              <span className="text-xs font-black text-white">S</span>
+              <span className="text-xs font-black text-white">O</span>
             </div>
-            <span className="text-sm font-bold text-white">Stellar Checkout</span>
+            <span className="text-sm font-bold text-white">OrbitStream</span>
           </div>
           <div className="hidden md:flex items-center gap-0.5">
             {["Features", "How It Works", "Docs"].map(l => (
@@ -159,9 +159,9 @@ export default function Home() {
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-5 h-5 rounded-md bg-indigo-600 flex items-center justify-center">
-              <span className="text-[10px] font-black text-white">S</span>
+              <span className="text-[10px] font-black text-white">O</span>
             </div>
-            <span className="text-sm font-bold text-white">Stellar Checkout</span>
+            <span className="text-sm font-bold text-white">OrbitStream</span>
           </div>
           <p className="text-xs text-zinc-700">Built on Stellar</p>
         </div>

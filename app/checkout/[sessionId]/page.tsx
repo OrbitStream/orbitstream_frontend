@@ -16,9 +16,9 @@ export default function CheckoutPage() {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-6 h-6 rounded-md bg-indigo-600 flex items-center justify-center">
-              <span className="text-xs font-black text-white">S</span>
+              <span className="text-xs font-black text-white">O</span>
             </div>
-            <span className="text-sm font-bold text-white">Stellar Checkout</span>
+            <span className="text-sm font-bold text-white">OrbitStream</span>
           </div>
         </div>
 
@@ -46,7 +46,7 @@ export default function CheckoutPage() {
 
         {/* Footer */}
         <p className="text-center text-xs text-zinc-700 mt-6">
-          Powered by Stellar Checkout
+          Powered by OrbitStream
         </p>
       </div>
     </div>
