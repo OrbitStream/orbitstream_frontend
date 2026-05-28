@@ -1,36 +1,17 @@
 export default function Home() {
   const FEATURES = [
-    { icon: "⚡", title: "Per-Second Precision", desc: "Tokens flow every second, not every month. Recipients see earnings accrue in real time." },
-    { icon: "🔒", title: "Non-Custodial", desc: "Funds stay in Soroban smart contracts. No intermediary ever holds your tokens." },
-    { icon: "⏸️", title: "Pause & Resume", desc: "Senders can pause streams at any time. Clocked time stops; recipients keep what they earned." },
-    { icon: "💸", title: "Cancel & Settle", desc: "Cancel anytime. Recipients receive earned tokens instantly; unearned funds return to sender." },
-    { icon: "🌍", title: "Any Stellar Asset", desc: "Stream XLM, USDC, or any Stellar-based token. No wrapping, no bridging." },
-    { icon: "📊", title: "On-Chain History", desc: "Every stream creation, claim, and cancellation is recorded on the Stellar blockchain." },
+    { icon: "⚡", title: "5-Second Settlement", desc: "Payments confirm on Stellar in under 5 seconds. No waiting for block confirmations." },
+    { icon: "💰", title: "$0.00001 Fees", desc: "The cheapest transaction fees of any major blockchain. Keep more of your revenue." },
+    { icon: "🌍", title: "Multi-Asset Support", desc: "Accept USDC, EURC, or XLM. Display prices in your preferred fiat currency." },
+    { icon: "🔔", title: "Webhook Notifications", desc: "Get instant payment.confirmed events delivered to your server. No polling required." },
+    { icon: "🧩", title: "JS SDK & Widgets", desc: "Drop a checkout widget on any page or redirect to a hosted payment link. 10-minute integration." },
+    { icon: "🏦", title: "Fiat Settlement", desc: "Settle to USD/EUR via Stellar anchors. Cash out at 350K+ MoneyGram locations worldwide." },
   ];
 
   const STEPS = [
-    { n: "01", title: "Connect Wallet",   desc: "Link your Stellar wallet via Freighter. No sign-up, no email." },
-    { n: "02", title: "Create a Stream",  desc: "Set a recipient, token, rate per second, and deposit amount." },
-    { n: "03", title: "Tokens Flow Live", desc: "The contract streams tokens continuously from the first second." },
-    { n: "04", title: "Claim Any Time",   desc: "Recipients withdraw accrued tokens whenever they want — one click." },
-  ];
-
-  const USECASES = [
-    { icon: "💼", title: "Payroll",       desc: "Pay employees per second. No more waiting for month-end payroll cycles." },
-    { icon: "📱", title: "Subscriptions", desc: "Charge users per second of usage. Stop overpaying for services you barely use." },
-    { icon: "🎓", title: "Grants",        desc: "Stream grant funding to builders. Milestone-free, trust-minimised disbursement." },
-    { icon: "🤝", title: "Vesting",       desc: "Stream token vesting to team members. Automatic, transparent, unstoppable." },
-  ];
-
-  const TICKS = [
-    "GAXYZ...3A4B streamed +0.035 XLM",
-    "GBCD...7E2F claimed 12.4 USDC",
-    "GCDE...1F9C created stream 0.001 XLM/sec",
-    "GDEF...5F1C paused stream #1042",
-    "GHIJ...9B3D top-up 500 XLM",
-    "GKLM...4C3E claimed 8.9 XLM",
-    "GNOP...2D7F new stream 0.05 USDC/sec",
-    "GQRS...6E1G cancelled — 34 XLM refunded",
+    { n: "01", title: "Sign Up", desc: "Connect your Stellar wallet. Get an API key instantly. No paperwork." },
+    { n: "02", title: "Integrate", desc: "Add our JS SDK or use hosted checkout links. Three lines of code." },
+    { n: "03", title: "Accept Payments", desc: "Customers pay with USDC or XLM. You get notified via webhooks in real time." },
   ];
 
   return (
@@ -41,21 +22,21 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-md bg-indigo-600 flex items-center justify-center">
-              <span className="text-xs font-black text-white">⚡</span>
+              <span className="text-xs font-black text-white">S</span>
             </div>
-            <span className="text-sm font-bold text-white">OrbitStream</span>
+            <span className="text-sm font-bold text-white">Stellar Checkout</span>
           </div>
           <div className="hidden md:flex items-center gap-0.5">
-            {["Features", "Use Cases", "Docs"].map(l => (
+            {["Features", "How It Works", "Docs"].map(l => (
               <a key={l} href={`#${l.toLowerCase().replace(" ", "-")}`}
                 className="px-3 py-1.5 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800/60 rounded-md transition-colors">
                 {l}
               </a>
             ))}
           </div>
-          <a href="https://github.com/OrbitStream"
+          <a href="/merchant"
             className="px-3.5 py-1.5 text-sm font-semibold bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition-colors">
-            Launch App
+            Dashboard
           </a>
         </div>
       </nav>
@@ -73,58 +54,43 @@ export default function Home() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] text-white mb-5">
-            Stream tokens.<br />
-            <span className="text-indigo-400">Every second.</span>
+            Accept Stellar payments.<br />
+            <span className="text-indigo-400">In minutes.</span>
           </h1>
 
           <p className="text-base sm:text-lg text-zinc-400 max-w-xl mx-auto mb-9 leading-relaxed">
-            OrbitStream lets you send continuous token flows on Stellar. Pay salaries, subscriptions,
-            and grants per-second — all secured by Soroban smart contracts.
+            Stripe-like checkout for the Stellar network. Drop a payment widget on your site,
+            get instant webhooks, and settle to fiat — with 5-second finality and near-zero fees.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3 mb-10">
-            <a href="https://github.com/OrbitStream"
+            <a href="/merchant"
               className="px-7 py-3 text-sm font-semibold bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition-colors min-h-[44px] flex items-center justify-center">
-              Launch App →
+              Get Started →
             </a>
-            <a href="https://github.com/OrbitStream/orbitstream-contracts" target="_blank" rel="noopener noreferrer"
+            <a href="#how-it-works"
               className="px-7 py-3 text-sm font-semibold text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 rounded-lg transition-colors min-h-[44px] flex items-center justify-center">
-              View Contracts
+              How It Works
             </a>
           </div>
 
           <div className="inline-block bg-zinc-900 border border-zinc-800 rounded-xl px-6 py-5 text-left">
-            <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Live stream demo</p>
-            <div className="flex items-baseline gap-2 mb-3">
-              <span className="text-3xl font-black font-mono text-indigo-400 tabular-nums">0.0347</span>
-              <span className="text-sm font-bold text-zinc-500">XLM/sec</span>
-            </div>
-            <div className="w-64 h-[3px] bg-zinc-800 rounded-full overflow-hidden">
-              <div className="stream-bar" />
-            </div>
+            <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Integration preview</p>
+            <pre className="text-sm font-mono text-zinc-300">
+              <span className="text-indigo-400">const</span> session = <span className="text-indigo-400">await</span> checkout.<span className="text-emerald-400">createSession</span>({'{\n'}
+              {'  '}amount: <span className="text-amber-300">25.00</span>,{'\n'}
+              {'  '}asset: <span className="text-emerald-300">"USDC"</span>,{'\n'}
+              {'  '}successUrl: <span className="text-emerald-300">"https://example.com/success"</span>{'\n'}
+              {'}'});
+            </pre>
           </div>
         </div>
       </section>
 
-      {/* Ticker */}
-      <div className="relative overflow-hidden py-3 border-y border-zinc-800 bg-zinc-900/40">
-        <div className="absolute left-0 top-0 w-16 h-full bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 w-16 h-full bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
-        <div className="marquee">
-          {[...TICKS, ...TICKS].map((t, i) => (
-            <div key={i} className="flex items-center gap-2.5 px-6 shrink-0">
-              <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />
-              <span className="text-xs text-zinc-400">{t}</span>
-              <span className="text-zinc-700 mx-2">·</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Stats */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {[{n:"∞",l:"Streams/sec"},{n:"$0",l:"Protocol Fees"},{n:"5s",l:"Stellar Finality"},{n:"100%",l:"Non-Custodial"}].map(s => (
+          {[{n:"~5s",l:"Settlement Time"},{n:"$0.00001",l:"Transaction Fee"},{n:"$83M+",l:"USDC on Stellar"},{n:"350K+",l:"MoneyGram Locations"}].map(s => (
             <div key={s.l} className="rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-5 text-center">
               <div className="text-2xl sm:text-3xl font-black font-mono text-white mb-0.5">{s.n}</div>
               <div className="text-xs text-zinc-500">{s.l}</div>
@@ -137,7 +103,7 @@ export default function Home() {
       <section id="features" className="border-t border-zinc-800 bg-zinc-900/30">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 sm:py-16">
           <p className="text-xs font-semibold text-indigo-400 tracking-widest uppercase mb-3">Features</p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-10">Built for continuous value transfer.</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-10">Everything you need to accept Stellar payments.</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {FEATURES.map(f => (
               <div key={f.title} className="rounded-xl border border-zinc-800 bg-zinc-900 p-5 hover:border-indigo-500/40 transition-colors">
@@ -150,62 +116,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Use Cases */}
-      <section id="use-cases" className="max-w-5xl mx-auto px-4 sm:px-6 py-14 sm:py-16">
-        <p className="text-xs font-semibold text-indigo-400 tracking-widest uppercase mb-3">Use Cases</p>
-        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-10">One protocol, many use cases.</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {USECASES.map(u => (
-            <div key={u.title} className="rounded-xl border border-zinc-800 bg-zinc-900 p-5 flex gap-4 hover:border-indigo-500/40 transition-colors">
-              <span className="text-2xl shrink-0">{u.icon}</span>
+      {/* How It Works */}
+      <section id="how-it-works" className="max-w-5xl mx-auto px-4 sm:px-6 py-14 sm:py-16">
+        <p className="text-xs font-semibold text-indigo-400 tracking-widest uppercase mb-3">How It Works</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-10">Start accepting payments in three steps.</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 relative">
+          <div className="hidden sm:block absolute top-5 left-[calc(16.67%+20px)] right-[calc(16.67%+20px)] h-px bg-zinc-800" />
+          {STEPS.map(s => (
+            <div key={s.n} className="flex flex-row sm:flex-col gap-4 sm:gap-0">
+              <div className="relative shrink-0">
+                <div className="w-10 h-10 rounded-xl border border-zinc-700 bg-zinc-800 flex items-center justify-center sm:mb-5 z-10 relative">
+                  <span className="text-xs font-black text-indigo-400">{s.n}</span>
+                </div>
+              </div>
               <div>
-                <h3 className="font-semibold text-white mb-1 text-sm sm:text-base">{u.title}</h3>
-                <p className="text-sm text-zinc-500 leading-relaxed">{u.desc}</p>
+                <h3 className="font-semibold text-white mb-1.5 text-sm">{s.title}</h3>
+                <p className="text-sm text-zinc-500 leading-relaxed">{s.desc}</p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="border-t border-zinc-800 bg-zinc-900/30">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 sm:py-16">
-          <p className="text-xs font-semibold text-indigo-400 tracking-widest uppercase mb-3">How It Works</p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-10">Start streaming in four steps.</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-            <div className="hidden lg:block absolute top-5 left-[calc(12.5%+20px)] right-[calc(12.5%+20px)] h-px bg-zinc-800" />
-            {STEPS.map(s => (
-              <div key={s.n} className="flex flex-row lg:flex-col gap-4 lg:gap-0">
-                <div className="relative shrink-0">
-                  <div className="w-10 h-10 rounded-xl border border-zinc-700 bg-zinc-800 flex items-center justify-center lg:mb-5 z-10 relative">
-                    <span className="text-xs font-black text-indigo-400">{s.n}</span>
-                  </div>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-white mb-1.5 text-sm">{s.title}</h3>
-                  <p className="text-sm text-zinc-500 leading-relaxed">{s.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-14 sm:py-16">
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-8 sm:p-12 text-center">
-          <h2 className="text-2xl sm:text-3xl font-black text-white mb-3">Start streaming today.</h2>
+          <h2 className="text-2xl sm:text-3xl font-black text-white mb-3">Ready to accept Stellar payments?</h2>
           <p className="text-zinc-400 text-sm sm:text-base max-w-md mx-auto mb-8 leading-relaxed">
-            Connect your Freighter wallet and launch your first token stream in under a minute.
+            Connect your wallet, get an API key, and start accepting USDC payments in under 10 minutes.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <a href="https://github.com/OrbitStream"
+            <a href="/merchant"
               className="px-8 py-3 text-sm font-semibold bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition-colors min-h-[44px] flex items-center justify-center">
-              Launch App →
-            </a>
-            <a href="https://github.com/OrbitStream/orbitstream-docs" target="_blank" rel="noopener noreferrer"
-              className="px-8 py-3 text-sm font-semibold text-zinc-300 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 rounded-lg transition-colors min-h-[44px] flex items-center justify-center">
-              Read the Docs
+              Get Started →
             </a>
           </div>
         </div>
@@ -216,17 +159,11 @@ export default function Home() {
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-5 h-5 rounded-md bg-indigo-600 flex items-center justify-center">
-              <span className="text-[10px] font-black text-white">⚡</span>
+              <span className="text-[10px] font-black text-white">S</span>
             </div>
-            <span className="text-sm font-bold text-white">OrbitStream</span>
+            <span className="text-sm font-bold text-white">Stellar Checkout</span>
           </div>
-          <div className="flex items-center gap-4">
-            {[["GitHub","https://github.com/OrbitStream"],["Contracts","https://github.com/OrbitStream/orbitstream-contracts"],["Backend","https://github.com/OrbitStream/OrbitStream_backend"]].map(([l,h]) => (
-              <a key={l} href={h} target="_blank" rel="noopener noreferrer"
-                className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors">{l}</a>
-            ))}
-          </div>
-          <p className="text-xs text-zinc-700">© 2026 OrbitStream Protocol</p>
+          <p className="text-xs text-zinc-700">Built on Stellar</p>
         </div>
       </footer>
     </div>

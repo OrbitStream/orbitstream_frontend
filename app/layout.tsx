@@ -9,9 +9,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OrbitStream — Real-Time Token Streaming on Stellar",
+  title: "Stellar Checkout — Accept Stellar Payments in Minutes",
   description:
-    "Stream tokens continuously on Stellar. Send salaries, subscriptions, and grants per-second — powered by Soroban smart contracts.",
+    "Stripe-like checkout for the Stellar network. Accept USDC, EURC, and XLM with 5-second settlement and $0.00001 fees.",
 };
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="max-w-4xl mx-auto p-6">{children}</div>
+        {children}
       </body>
     </html>
   );
