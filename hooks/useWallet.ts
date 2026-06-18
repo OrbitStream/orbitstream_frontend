@@ -25,8 +25,9 @@ export function useWallet() {
           : 'Test SDF Network ; September 2015',
       });
       return result.signedTxXdr;
-    } catch (err: any) {
-      throw new Error(err?.message ?? 'Transaction signing failed');
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Transaction signing failed';
+      throw new Error(message);
     }
   }, []);
 

@@ -79,8 +79,8 @@ export default function Home() {
             <pre className="text-sm font-mono text-zinc-300">
               <span className="text-indigo-400">const</span> session = <span className="text-indigo-400">await</span> checkout.<span className="text-emerald-400">createSession</span>({'{\n'}
               {'  '}amount: <span className="text-amber-300">25.00</span>,{'\n'}
-              {'  '}asset: <span className="text-emerald-300">"USDC"</span>,{'\n'}
-              {'  '}successUrl: <span className="text-emerald-300">"https://example.com/success"</span>{'\n'}
+              {'  '}asset: <span className="text-emerald-300">{`"USDC"`}</span>,{'\n'}
+              {'  '}successUrl: <span className="text-emerald-300">{`"https://example.com/success"`}</span>{'\n'}
               {'}'});
             </pre>
           </div>
