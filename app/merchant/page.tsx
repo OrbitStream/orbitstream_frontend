@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import Link from 'next/link';
 import { useWallet } from '../../hooks/useWallet';
 import { merchantLogin } from '../../lib/api';
 
@@ -33,9 +34,9 @@ export default function MerchantDashboard() {
             </div>
             <span className="text-sm font-bold text-white">OrbitStream</span>
           </div>
-          <a href="/" className="text-sm text-zinc-400 hover:text-white">
+          <Link href="/" className="text-sm text-zinc-400 hover:text-white">
             Home
-          </a>
+          </Link>
         </div>
       </nav>
 
