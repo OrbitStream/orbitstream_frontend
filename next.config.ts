@@ -1,5 +1,13 @@
 import type { NextConfig } from "next";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001";
+const STELLAR_NETWORK = process.env.NEXT_PUBLIC_STELLAR_NETWORK ?? "testnet";
+
+const horizonUrl =
+  STELLAR_NETWORK === "mainnet"
+    ? "https://horizon.stellar.org"
+    : "https://horizon-testnet.stellar.org";
+
 const nextConfig: NextConfig = {
   async headers() {
     return [
@@ -18,7 +26,7 @@ const nextConfig: NextConfig = {
               "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https://stellar.expert",
-              "connect-src 'self' https://horizon-testnet.stellar.org https://horizon.stellar.org wss://horizon.stellar.org",
+              `connect-src 'self' ${API_URL} ${horizonUrl} wss://horizon.stellar.org`,
               "frame-ancestors 'none'",
             ].join("; "),
           },
