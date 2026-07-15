@@ -1,7 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { AssetSelector } from './AssetSelector';
+import {
+  TransactionBuilder,
+  Asset,
+  Memo,
+  Operation,
+} from '@stellar/stellar-sdk';
+import { server, networkPassphrase } from '../../lib/stellar';
+import { useWallet } from '../../hooks/useWallet';
 import { QRCodeDisplay } from './QRCode';
 import { WalletConnect } from './WalletConnect';
 import { PaymentStatus } from './PaymentStatus';
@@ -14,6 +21,8 @@ interface CheckoutFormProps {
 
 export function CheckoutForm({ session }: CheckoutFormProps) {
   const [isPaying, setIsPaying] = useState(false);
+  const [payError, setPayError] = useState<string | null>(null);
+  const { address, signTransaction } = useWallet();
 
   const payURI = buildStellarPayURI({
     destination: session.receivingAccount,
@@ -24,24 +33,58 @@ export function CheckoutForm({ session }: CheckoutFormProps) {
   });
 
   const handlePay = async () => {
+    if (!address) return;
     setIsPaying(true);
-    // In a real implementation, this would build and sign a Stellar transaction via Freighter
-    // For now, the user scans the QR code
-    setTimeout(() => setIsPaying(false), 3000);
+    setPayError(null);
+
+    try {
+      const asset =
+        session.assetCode === 'XLM'
+          ? Asset.native()
+          : new Asset(session.assetCode, session.assetIssuer!);
+
+      const account = await server.loadAccount(address);
+      const baseFee = await server.fetchBaseFee();
+
+      const txBuilder = new TransactionBuilder(account, {
+        fee: baseFee.toString(),
+        networkPassphrase,
+      })
+        .addOperation(
+          Operation.payment({
+            destination: session.receivingAccount,
+            asset,
+            amount: session.amount,
+          }),
+        )
+        .setTimeout(180);
+
+      if (session.memo) {
+        txBuilder.addMemo(Memo.text(session.memo));
+      }
+
+      const tx = txBuilder.build();
+      const signedXdr = await signTransaction(tx.toXDR());
+      const signedTx = TransactionBuilder.fromXDR(signedXdr, networkPassphrase);
+
+      await server.submitTransaction(signedTx);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Payment failed';
+      setPayError(message);
+    } finally {
+      setIsPaying(false);
+    }
   };
 
   return (
     <div className="space-y-6">
-      {/* Amount Display */}
       <div className="text-center">
         <p className="text-3xl font-black font-mono text-white">{session.amount}</p>
         <p className="text-sm text-zinc-500">{session.assetCode}</p>
       </div>
 
-      {/* Status */}
       <PaymentStatus status={session.status} />
 
-      {/* QR Code (only when pending) */}
       {session.status === 'pending' && (
         <>
           <QRCodeDisplay uri={payURI} address={session.receivingAccount} />
@@ -57,7 +100,12 @@ export function CheckoutForm({ session }: CheckoutFormProps) {
 
           <WalletConnect onPay={handlePay} isPaying={isPaying} />
 
-          {/* Memo */}
+          {payError && (
+            <div className="bg-red-950 border border-red-800 rounded-lg px-3 py-2">
+              <p className="text-xs text-red-400">{payError}</p>
+            </div>
+          )}
+
           {session.memo && (
             <div className="bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2">
               <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-1">Memo (required)</p>

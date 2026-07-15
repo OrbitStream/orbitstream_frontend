@@ -1,15 +1,25 @@
 import { useState, useCallback } from 'react';
 import freighterApi from '@stellar/freighter-api';
+import { networkPassphrase } from '../lib/stellar';
 
 export function useWallet() {
   const [address, setAddress] = useState<string | null>(null);
+  const [isConnecting, setIsConnecting] = useState(false);
 
   const connect = useCallback(async () => {
+    setIsConnecting(true);
     try {
+      const isInstalled = await freighterApi.isConnected();
+      if (!isInstalled) {
+        throw new Error('Freighter wallet is not installed. Please install the Freighter browser extension.');
+      }
       const resp = await freighterApi.getAddress();
       setAddress(resp?.address ?? null);
-    } catch {
+    } catch (err) {
       setAddress(null);
+      throw err;
+    } finally {
+      setIsConnecting(false);
     }
   }, []);
 
@@ -20,9 +30,7 @@ export function useWallet() {
   const signTransaction = useCallback(async (xdr: string) => {
     try {
       const result = await freighterApi.signTransaction(xdr, {
-        networkPassphrase: process.env.NEXT_PUBLIC_STELLAR_NETWORK === 'mainnet'
-          ? 'Public Global Stellar Network ; September 2015'
-          : 'Test SDF Network ; September 2015',
+        networkPassphrase,
       });
       return result.signedTxXdr;
     } catch (err: unknown) {
@@ -37,5 +45,6 @@ export function useWallet() {
     disconnect,
     signTransaction,
     isConnected: !!address,
+    isConnecting,
   };
 }
