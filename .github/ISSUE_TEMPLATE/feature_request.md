@@ -1,9 +1,9 @@
 ---
-name: "Feature Request"
-about: "Suggest a new feature or enhancement for the OrbitStream Frontend"
-title: "[FEAT] "
-labels: ["enhancement", "needs-triage"]
-assignees: ""
+name: 'Feature Request'
+about: 'Suggest a new feature or enhancement for the OrbitStream Frontend'
+title: '[FEAT] '
+labels: ['enhancement', 'needs-triage']
+assignees: ''
 ---
 
 # Feature Request
@@ -48,10 +48,10 @@ assignees: ""
 - [ ] Checkout Page (`/checkout/[sessionId]`)
 - [ ] Merchant Dashboard (`/merchant`)
 - [ ] Merchant Settings (`/merchant/settings`)
-- [ ] Components (checkout/*, ui/*)
+- [ ] Components (checkout/_, ui/_)
 - [ ] Hooks (useWallet, useCheckout)
-- [ ] Libraries (lib/*)
-- [ ] Other: ___
+- [ ] Libraries (lib/\*)
+- [ ] Other: \_\_\_
 
 ## 📎 Related Issues/PRs
 

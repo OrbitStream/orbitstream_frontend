@@ -12,7 +12,10 @@ export default function MerchantSettings() {
       <div className="min-h-screen bg-zinc-950 text-white flex items-center justify-center">
         <div className="text-center">
           <p className="text-zinc-400 mb-4">Connect your wallet to access settings.</p>
-          <button onClick={connect} className="px-6 py-3 text-sm font-semibold bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg">
+          <button
+            onClick={connect}
+            className="px-6 py-3 text-sm font-semibold bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg"
+          >
             Connect Freighter
           </button>
         </div>
@@ -40,7 +43,9 @@ export default function MerchantSettings() {
         {/* API Keys */}
         <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
           <h2 className="text-sm font-bold text-white mb-4">API Keys</h2>
-          <p className="text-sm text-zinc-500 mb-4">Use API keys to create checkout sessions programmatically.</p>
+          <p className="text-sm text-zinc-500 mb-4">
+            Use API keys to create checkout sessions programmatically.
+          </p>
           <button className="px-4 py-2 text-sm font-semibold bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition-colors">
             Generate New Key
           </button>
@@ -49,7 +54,9 @@ export default function MerchantSettings() {
         {/* Webhook */}
         <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
           <h2 className="text-sm font-bold text-white mb-4">Webhook URL</h2>
-          <p className="text-sm text-zinc-500 mb-4">Receive payment.confirmed events at your endpoint.</p>
+          <p className="text-sm text-zinc-500 mb-4">
+            Receive payment.confirmed events at your endpoint.
+          </p>
           <div className="flex gap-2">
             <input
               type="url"

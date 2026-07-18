@@ -1,12 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import {
-  TransactionBuilder,
-  Asset,
-  Memo,
-  Operation,
-} from '@stellar/stellar-sdk';
+import { TransactionBuilder, Asset, Memo, Operation } from '@stellar/stellar-sdk';
 import { server, networkPassphrase } from '../../lib/stellar';
 import { useWallet } from '../../hooks/useWallet';
 import { QRCodeDisplay } from './QRCode';
@@ -108,7 +103,9 @@ export function CheckoutForm({ session }: CheckoutFormProps) {
 
           {session.memo && (
             <div className="bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2">
-              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-1">Memo (required)</p>
+              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-1">
+                Memo (required)
+              </p>
               <code className="text-xs text-zinc-300 font-mono">{session.memo}</code>
             </div>
           )}

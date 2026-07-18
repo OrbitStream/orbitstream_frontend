@@ -45,9 +45,7 @@ export default function CheckoutPage() {
         </div>
 
         {/* Footer */}
-        <p className="text-center text-xs text-zinc-700 mt-6">
-          Powered by OrbitStream
-        </p>
+        <p className="text-center text-xs text-zinc-700 mt-6">Powered by OrbitStream</p>
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
 ---
-name: "Bug Report"
-about: "Report a bug in the OrbitStream Frontend"
-title: "[BUG] "
-labels: ["bug", "needs-triage"]
-assignees: ""
+name: 'Bug Report'
+about: 'Report a bug in the OrbitStream Frontend'
+title: '[BUG] '
+labels: ['bug', 'needs-triage']
+assignees: ''
 ---
 
 # Bug Report
@@ -18,9 +18,9 @@ assignees: ""
 
 ## 🔄 Steps to Reproduce
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
 ## ✅ Expected Behavior
 

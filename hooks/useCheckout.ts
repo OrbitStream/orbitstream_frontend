@@ -6,7 +6,7 @@ export function useCheckout(sessionId: string | null) {
     sessionId ? `/v1/checkout/sessions/${sessionId}` : null,
     () => fetchSession(sessionId!),
     {
-      refreshInterval: (data) => data?.status === 'pending' ? 3000 : 0,
+      refreshInterval: (data) => (data?.status === 'pending' ? 3000 : 0),
       revalidateOnFocus: true,
     },
   );
