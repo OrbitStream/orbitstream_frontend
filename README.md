@@ -23,12 +23,12 @@ Next.js 16 application with two user flows: a customer-facing checkout page (QR 
 
 ## Pages
 
-| Route | Description |
-|-------|-------------|
-| `/` | Landing page — features, how it works, CTA |
+| Route                   | Description                                     |
+| ----------------------- | ----------------------------------------------- |
+| `/`                     | Landing page — features, how it works, CTA      |
 | `/checkout/[sessionId]` | Customer checkout — QR code, wallet pay, status |
-| `/merchant` | Merchant dashboard — login, stats, payments |
-| `/merchant/settings` | Settings — API keys, webhook config |
+| `/merchant`             | Merchant dashboard — login, stats, payments     |
+| `/merchant/settings`    | Settings — API keys, webhook config             |
 
 ---
 
@@ -63,6 +63,7 @@ lib/
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js >= 20
 - [Freighter Wallet](https://freighter.app) browser extension
 
@@ -94,14 +95,14 @@ npm run build && npm start
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|------------|
-| Framework | Next.js 16 (App Router) |
-| Language | TypeScript 5 |
-| Styling | Tailwind CSS 4, shadcn/ui |
-| Data Fetching | SWR |
-| Blockchain | Stellar SDK, Freighter Wallet |
-| QR Codes | qrcode.react |
+| Layer         | Technology                    |
+| ------------- | ----------------------------- |
+| Framework     | Next.js 16 (App Router)       |
+| Language      | TypeScript 5                  |
+| Styling       | Tailwind CSS 4, shadcn/ui     |
+| Data Fetching | SWR                           |
+| Blockchain    | Stellar SDK, Freighter Wallet |
+| QR Codes      | qrcode.react                  |
 
 ---
 

@@ -5,7 +5,8 @@ interface PaymentStatusProps {
   txHash?: string;
 }
 
-const EXPLORER_URL = process.env.NEXT_PUBLIC_STELLAR_EXPLORER_URL ?? 'https://stellar.expert/explorer/testnet';
+const EXPLORER_URL =
+  process.env.NEXT_PUBLIC_STELLAR_EXPLORER_URL ?? 'https://stellar.expert/explorer/testnet';
 
 export function PaymentStatus({ status, txHash }: PaymentStatusProps) {
   if (status === 'paid') {

@@ -11,7 +11,9 @@ export function useWallet() {
     try {
       const isInstalled = await freighterApi.isConnected();
       if (!isInstalled) {
-        throw new Error('Freighter wallet is not installed. Please install the Freighter browser extension.');
+        throw new Error(
+          'Freighter wallet is not installed. Please install the Freighter browser extension.',
+        );
       }
       const resp = await freighterApi.getAddress();
       setAddress(resp?.address ?? null);

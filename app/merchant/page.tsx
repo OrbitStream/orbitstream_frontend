@@ -44,7 +44,9 @@ export default function MerchantDashboard() {
         {!isConnected ? (
           <div className="text-center py-20">
             <h1 className="text-2xl font-bold mb-4">Merchant Dashboard</h1>
-            <p className="text-zinc-400 mb-6">Connect your Stellar wallet to access your dashboard.</p>
+            <p className="text-zinc-400 mb-6">
+              Connect your Stellar wallet to access your dashboard.
+            </p>
             <button
               onClick={connect}
               className="px-6 py-3 text-sm font-semibold bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition-colors"
@@ -55,7 +57,9 @@ export default function MerchantDashboard() {
         ) : !token ? (
           <div className="text-center py-20">
             <h1 className="text-2xl font-bold mb-4">Welcome Back</h1>
-            <p className="text-zinc-400 mb-2">Wallet: <code className="text-zinc-300 text-xs">{address}</code></p>
+            <p className="text-zinc-400 mb-2">
+              Wallet: <code className="text-zinc-300 text-xs">{address}</code>
+            </p>
             <button
               onClick={handleLogin}
               disabled={loggingIn}
@@ -94,7 +98,9 @@ export default function MerchantDashboard() {
 
             <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
               <h2 className="text-sm font-bold text-white mb-4">Recent Payments</h2>
-              <p className="text-sm text-zinc-500">No payments yet. Create a checkout session to get started.</p>
+              <p className="text-sm text-zinc-500">
+                No payments yet. Create a checkout session to get started.
+              </p>
             </div>
           </div>
         )}
