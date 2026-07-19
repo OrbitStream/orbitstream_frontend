@@ -8,6 +8,11 @@ const horizonUrl =
     ? 'https://horizon.stellar.org'
     : 'https://horizon-testnet.stellar.org';
 
+const horizonWsUrl =
+  STELLAR_NETWORK === 'mainnet'
+    ? 'wss://horizon.stellar.org'
+    : 'wss://horizon-testnet.stellar.org';
+
 const nextConfig: NextConfig = {
   async headers() {
     return [
@@ -23,10 +28,10 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              "script-src 'self' 'unsafe-inline'",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https://stellar.expert",
-              `connect-src 'self' ${API_URL} ${horizonUrl} wss://horizon.stellar.org`,
+              `connect-src 'self' ${API_URL} ${horizonUrl} ${horizonWsUrl}`,
               "frame-ancestors 'none'",
             ].join('; '),
           },
