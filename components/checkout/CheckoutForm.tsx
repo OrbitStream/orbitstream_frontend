@@ -17,6 +17,7 @@ interface CheckoutFormProps {
 export function CheckoutForm({ session }: CheckoutFormProps) {
   const [isPaying, setIsPaying] = useState(false);
   const [payError, setPayError] = useState<string | null>(null);
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
   const { address, signTransaction } = useWallet();
 
   const payURI = buildStellarPayURI({
@@ -63,6 +64,12 @@ export function CheckoutForm({ session }: CheckoutFormProps) {
       const signedTx = TransactionBuilder.fromXDR(signedXdr, networkPassphrase);
 
       await server.submitTransaction(signedTx);
+
+      if (session.successUrl) {
+        window.location.href = session.successUrl;
+      } else {
+        setPaymentSuccess(true);
+      }
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : 'Payment failed';
       setPayError(message);
@@ -80,7 +87,13 @@ export function CheckoutForm({ session }: CheckoutFormProps) {
 
       <PaymentStatus status={session.status} />
 
-      {session.status === 'pending' && (
+      {paymentSuccess && !session.successUrl && (
+        <div className="bg-green-950 border border-green-800 rounded-lg px-3 py-2">
+          <p className="text-sm text-green-400 text-center font-medium">Payment Successful</p>
+        </div>
+      )}
+
+      {session.status === 'pending' && !paymentSuccess && (
         <>
           <QRCodeDisplay uri={payURI} address={session.receivingAccount} />
 
